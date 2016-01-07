@@ -1,0 +1,6 @@
+# IDE working files
+*.iml
+.idea/
+
+# Build directories
+target
