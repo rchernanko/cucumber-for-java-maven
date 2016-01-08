@@ -8,19 +8,29 @@ import static org.junit.Assert.*;
 public class CheckoutSteps {
 
     int bananaPrice = 0;
-    Checkout checkout;
+    int applePrice = 0;
+    Checkout checkout = new Checkout();
 
     @Given("^the price of a \"([^\"]*)\" is (\\d+)c$")
     public void thePriceOfAIsC(String name, int price)
             throws Throwable {
-        bananaPrice = price;
+        if(name.equals("apple")) {
+            applePrice = price;
+        }
+        if(name.equals("banana")) {
+            bananaPrice = price;
+        }
     }
 
     @When("^I checkout (\\d+) \"([^\"]*)\"$")
     public void iCheckout(int itemCount, String itemName)
             throws Throwable {
-        checkout = new Checkout();
-        checkout.add(itemCount, bananaPrice);
+        if(itemName.equals("apple")) {
+            checkout.add(itemCount, applePrice);
+        }
+        if(itemName.equals("banana")) {
+            checkout.add(itemCount, bananaPrice);
+        }
     }
 
     @Then("^the total price should be (\\d+)c$")
