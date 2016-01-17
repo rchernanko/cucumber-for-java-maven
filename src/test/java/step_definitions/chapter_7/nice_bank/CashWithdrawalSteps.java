@@ -7,11 +7,13 @@ The code below + the cash_withdrawal.feature is an exercise done from the cucumb
 package step_definitions.chapter_7.nice_bank;
 
 import cucumber.api.PendingException;
+import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import implementation.chapter_7.Money;
 import org.junit.Assert;
+import transforms.chapter_7.MoneyConverter;
 
 public class CashWithdrawalSteps {
 
@@ -24,8 +26,8 @@ public class CashWithdrawalSteps {
 //        Assert.assertEquals("Incorrect account balance - ", amount, myAccount.getBalance());
 //    }
 
-    @Given("^I have deposited £(\\d+\\.\\d+) in my account$")
-    public void i_have_deposited_£_in_my_account(Money amount) throws Throwable {
+    @Given("^I have deposited (\\£\\d+\\.\\d+) in my account$")
+    public void i_have_deposited_£_in_my_account(@Transform(MoneyConverter.class) Money amount) throws Throwable {
         Account myAccount = new Account();
         myAccount.deposit(amount);
 
