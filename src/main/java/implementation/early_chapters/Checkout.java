@@ -1,4 +1,4 @@
-package implementation;
+package implementation.early_chapters;
 
 public class Checkout {
 
