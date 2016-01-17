@@ -1,7 +1,7 @@
-package step_definitions;
+package step_definitions.early_chapters;
 
 import cucumber.api.java.en.*;
-import implementation.Checkout;
+import implementation.early_chapters.Checkout;
 
 import static org.junit.Assert.*;
 
