@@ -16,7 +16,7 @@ import implementation.chapter_7.Money;
 
 public class MoneyConverter extends Transformer<Money>{
 
-    @Override //from Transormer class
+    @Override //from Transformer class
     public Money transform(String amount) {
         String[] numbers = amount.substring(1).split("\\.");
 
