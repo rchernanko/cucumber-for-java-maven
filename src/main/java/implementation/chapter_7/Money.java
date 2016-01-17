@@ -24,6 +24,10 @@ public final class Money {
         this.pence = pence;
     }
 
+    //We could have used this method below instead of the MoneyConverter class...
+    //The reason that we created the MoneyConverter class was to answer the question - what if the 'Money' class doesn't
+    //have a string constructor and isn't ours to modify?? To get around this, we can use Cucumber's "Transformer" class
+    //See page 126 of the cucumber for java book for more details...
     public Money(String amount) {
         Pattern pattern = Pattern.compile("^[^\\d]*([\\d]+)\\.([\\d][\\d])$");
         Matcher matcher = pattern.matcher(amount);
