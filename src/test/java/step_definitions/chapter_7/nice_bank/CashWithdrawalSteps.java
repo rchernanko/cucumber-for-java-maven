@@ -6,7 +6,6 @@ The code below + the cash_withdrawal.feature is an exercise done from the cucumb
 
 package step_definitions.chapter_7.nice_bank;
 
-import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -24,10 +23,10 @@ public class CashWithdrawalSteps {
     //a CashWithDrawalSteps constuctor that will ALWAYS be called when an instance of the class is created) - e.g. when
     //cucumber creates an instance of this class at the beginning
 
-    KnowsMyAccount helper;
+    KnowsMyDomain helper;
 
     public CashWithdrawalSteps() {
-        helper = new KnowsMyAccount();
+        helper = new KnowsMyDomain();
     }
 
     //Prior to adding a Money class, this is what the given step def looked like. It took only 1 integer and not 2
@@ -43,28 +42,52 @@ public class CashWithdrawalSteps {
     public void i_have_deposited_£_in_my_account(@Transform(MoneyConverter.class) Money amount)
             throws Throwable {
         helper.getMyAccount().deposit(amount);
-
         Assert.assertEquals("Incorrect account balance - ", amount, helper.getMyAccount().getBalance());
     }
 
     @When("^I withdraw £(\\d+)$")
-    public void i_withdraw_£(int amount)
+    public void i_withdraw_£(int pounds)
             throws Throwable {
-        Teller teller = new Teller();
-        teller.withdrawFrom(helper.getMyAccount(), amount);
+        helper.getTeller().withdrawFrom(helper.getMyAccount(), pounds);
     }
 
     @Then("^£(\\d+) should be dispensed$")
-    public void £_should_be_dispensed(int arg1)
+    public void £_should_be_dispensed(int pounds)
             throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        Assert.assertEquals("Incorrect amount dispensed", pounds, helper.getCashSlot().getContents());
     }
 
 }
 
-class Account {
+class KnowsMyDomain {
 
+    private Account myAccount;
+    private CashSlot cashSlot;
+    private Teller teller;
+
+    public Account getMyAccount() {
+        if (myAccount == null) {
+            myAccount = new Account();
+        }
+        return myAccount;
+    }
+
+    public CashSlot getCashSlot() {
+        if (cashSlot == null) {
+            cashSlot = new CashSlot();
+        }
+        return cashSlot;
+    }
+
+    public Teller getTeller() {
+        if (teller == null) {
+            teller = new Teller(getCashSlot());
+        }
+        return teller;
+    }
+}
+
+class Account {
     private Money balance = new Money();
 
     public void deposit(Money amount) {
@@ -77,20 +100,26 @@ class Account {
 }
 
 class Teller {
+    private CashSlot cashSlot;
+
+    public Teller(CashSlot cashSlot) {
+        this.cashSlot = cashSlot;
+    }
 
     public void withdrawFrom(Account account, int pounds) {
-
+        cashSlot.dispense(pounds);
     }
 }
 
-class KnowsMyAccount {
 
-    private Account myAccount;
+class CashSlot {
+    private int contents;
 
-    public Account getMyAccount() {
-        if (myAccount == null) {
-            myAccount = new Account();
-        }
-        return myAccount;
+    public int getContents() {
+        return contents;
+    }
+
+    public void dispense(int pounds) {
+        contents = pounds;
     }
 }
