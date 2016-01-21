@@ -1,4 +1,4 @@
-package transforms.chapter_7;
+package transforms.chapter_7.nice_bank;
 
 /*
 
@@ -12,7 +12,7 @@ For further information on transformer classes, have a look at page 126 in the c
 */
 
 import cucumber.api.Transformer;
-import implementation.chapter_7.Money;
+import implementation.chapter_7.nice_bank.Money;
 
 public class MoneyConverter extends Transformer<Money>{
 
