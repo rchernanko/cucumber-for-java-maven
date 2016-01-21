@@ -9,3 +9,5 @@ Before there was a RunCukesTest class, when I executed mvn clean test, no tests 
 
 Of course Maven looks for a class ending in Test. There is then some Cucumber magic in the RunCukesTest class that tells
 Cucumber where to look for feature files.
+
+hello
