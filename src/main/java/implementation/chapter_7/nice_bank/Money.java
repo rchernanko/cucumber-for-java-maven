@@ -1,4 +1,4 @@
-package implementation.chapter_7;
+package implementation.chapter_7.nice_bank;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
