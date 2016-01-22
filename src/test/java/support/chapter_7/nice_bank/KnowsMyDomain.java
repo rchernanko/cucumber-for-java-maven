@@ -1,4 +1,4 @@
-package support;
+package support.chapter_7.nice_bank;
 
 import implementation.chapter_7.nice_bank.Account;
 import implementation.chapter_7.nice_bank.CashSlot;

@@ -4,7 +4,7 @@ import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import implementation.chapter_7.nice_bank.Money;
 import org.junit.Assert;
-import support.KnowsMyDomain;
+import support.chapter_7.nice_bank.KnowsMyDomain;
 import transforms.chapter_7.nice_bank.MoneyConverter;
 
 public class AccountSteps {
