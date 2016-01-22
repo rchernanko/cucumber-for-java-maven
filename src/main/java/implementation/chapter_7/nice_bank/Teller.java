@@ -9,6 +9,7 @@ public class Teller {
     }
 
     public void withdrawFrom(Account account, int pounds) {
+        account.debit(pounds);
         cashSlot.dispense(pounds);
     }
 
