@@ -5,7 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import implementation.chapter_7.nice_bank.Money;
 import org.junit.Assert;
-import support.chapter_7.nice_bank.KnowsMyDomain;
+import support.chapter_7.nice_bank.KnowsTheDomain;
 import transforms.chapter_7.nice_bank.MoneyConverter;
 
 public class AccountSteps {
@@ -17,9 +17,9 @@ public class AccountSteps {
     //an AccountSteps constructor that will ALWAYS be called when an instance of the class is created) - e.g. when
     //cucumber creates an instance of this class at the beginning
 
-    KnowsMyDomain helper;
+    KnowsTheDomain helper;
 
-    public AccountSteps(KnowsMyDomain helper) {
+    public AccountSteps(KnowsTheDomain helper) {
         this.helper = helper;
     }
 

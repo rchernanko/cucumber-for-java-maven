@@ -1,13 +1,13 @@
 package step_definitions.chapter_7.nice_bank;
 
 import cucumber.api.java.en.When;
-import support.chapter_7.nice_bank.KnowsMyDomain;
+import support.chapter_7.nice_bank.KnowsTheDomain;
 
 public class TellerSteps {
 
-    KnowsMyDomain helper;
+    KnowsTheDomain helper;
 
-    public TellerSteps(KnowsMyDomain helper) {
+    public TellerSteps(KnowsTheDomain helper) {
         this.helper = helper;
     }
 
