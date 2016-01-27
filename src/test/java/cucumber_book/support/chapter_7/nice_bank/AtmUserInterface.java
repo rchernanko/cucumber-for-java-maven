@@ -1,5 +1,6 @@
-package support.chapter_7.nice_bank;
+package cucumber_book.support.chapter_7.nice_bank;
 
+import cucumber_book.hooks.ServerHooks;
 import implementation.chapter_7.nice_bank.Account;
 import implementation.chapter_7.nice_bank.Teller;
 import org.openqa.selenium.By;
@@ -16,7 +17,7 @@ public class AtmUserInterface implements Teller {
 
     public void withdrawFrom(Account account, int pounds) {
         try{
-            webDriver.get("http://localhost:9988");
+            webDriver.get("http://localhost:" + ServerHooks.PORT);
             webDriver.findElement(By.id("Amount"))
                     .sendKeys(String.valueOf(pounds));
             webDriver.findElement(By.id("Withdraw")).click();

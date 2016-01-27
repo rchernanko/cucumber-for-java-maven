@@ -1,11 +1,11 @@
-package acceptance_tests;
+package cucumber_book.acceptance_tests;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions (glue = {"step_definitions"}, features = "src/test/resources/features/")
+@CucumberOptions (glue = {"cucumber_book"}, features = "src/test/resources/features/")
 public class RunCukesTest {
 }
 
@@ -18,14 +18,14 @@ RUNNING SCENARIOS / FEATURES AS PER THEIR TAGS
 If I wanted to run all scenarios that have a @richard tag EVERY time when I enter mvn clean test, I could add the below
 tags section to my Cucumber Options:
 
-@CucumberOptions (glue = {"step_definitions"}, features = "src/test/resources/features/", tags = {"@richard"})
+@CucumberOptions (glue = {"cucumber_book"}, features = "src/test/resources/features/", tags = {"@richard"})
 
 2)
 
 Of course, if I don't have a tags section in my cucumber options, then I can also specify specific tags to run on the
 command line:
 
-mvn clean test -Dcucumber.options="--tags @richard --tags @hello"
+mvn clean test -Dcucumber.options="--tags @richard --tags @cucumber_book"
 
 3)
 

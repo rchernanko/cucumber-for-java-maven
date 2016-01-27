@@ -9,7 +9,7 @@ public class AtmServer {
     private final Server server;
 
     public AtmServer(int port) {
-        server = new Server(9988);
+        server = new Server(port);
 
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
@@ -27,6 +27,10 @@ public class AtmServer {
         server.stop();
     }
 
+    /*
+    This main method is no longer required once I start to use @Before cucumber hooks - these call the start() method
+    above
+     */
     public static void main(String[] args) throws Exception {
         new AtmServer(9988).start();
     }

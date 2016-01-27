@@ -1,4 +1,4 @@
-package transforms.chapter_7.nice_bank;
+package cucumber_book.transforms.chapter_7.nice_bank;
 
 /*
 

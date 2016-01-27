@@ -1,8 +1,8 @@
-package step_definitions.chapter_7.nice_bank;
+package cucumber_book.step_definitions.chapter_7.nice_bank;
 
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
-import support.chapter_7.nice_bank.KnowsTheDomain;
+import cucumber_book.support.chapter_7.nice_bank.KnowsTheDomain;
 
 public class CashSlotSteps {
 

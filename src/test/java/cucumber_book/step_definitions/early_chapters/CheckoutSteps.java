@@ -1,4 +1,4 @@
-package step_definitions.early_chapters;
+package cucumber_book.step_definitions.early_chapters;
 
 import cucumber.api.java.en.*;
 import implementation.early_chapters.Checkout;

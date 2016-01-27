@@ -1,12 +1,12 @@
-package step_definitions.chapter_7.nice_bank;
+package cucumber_book.step_definitions.chapter_7.nice_bank;
 
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import implementation.chapter_7.nice_bank.Money;
 import org.junit.Assert;
-import support.chapter_7.nice_bank.KnowsTheDomain;
-import transforms.chapter_7.nice_bank.MoneyConverter;
+import cucumber_book.support.chapter_7.nice_bank.KnowsTheDomain;
+import cucumber_book.transforms.chapter_7.nice_bank.MoneyConverter;
 
 public class AccountSteps {
 
