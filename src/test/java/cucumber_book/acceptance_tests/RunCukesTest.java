@@ -25,7 +25,7 @@ tags section to my Cucumber Options:
 Of course, if I don't have a tags section in my cucumber options, then I can also specify specific tags to run on the
 command line:
 
-mvn clean test -Dcucumber.options="--tags @richard --tags @cucumber_book"
+mvn clean test -Dcucumber.options="--tags @richard --tags @hello"
 
 3)
 
