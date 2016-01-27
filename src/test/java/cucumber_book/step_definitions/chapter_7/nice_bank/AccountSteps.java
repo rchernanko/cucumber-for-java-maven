@@ -1,11 +1,12 @@
-package step_definitions.chapter_7.nice_bank;
+package cucumber_book.step_definitions.chapter_7.nice_bank;
 
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import implementation.chapter_7.nice_bank.Money;
 import org.junit.Assert;
-import support.KnowsMyDomain;
-import transforms.chapter_7.nice_bank.MoneyConverter;
+import cucumber_book.support.chapter_7.nice_bank.KnowsTheDomain;
+import cucumber_book.transforms.chapter_7.nice_bank.MoneyConverter;
 
 public class AccountSteps {
 
@@ -16,9 +17,9 @@ public class AccountSteps {
     //an AccountSteps constructor that will ALWAYS be called when an instance of the class is created) - e.g. when
     //cucumber creates an instance of this class at the beginning
 
-    KnowsMyDomain helper;
+    KnowsTheDomain helper;
 
-    public AccountSteps(KnowsMyDomain helper) {
+    public AccountSteps(KnowsTheDomain helper) {
         this.helper = helper;
     }
 
@@ -27,10 +28,15 @@ public class AccountSteps {
     //dependency injections to manage this (see pages 136 to 138 in the book for more details). I have implemented DI
     //in my other step defs within this chapter 7 > nice bank package
 
-    @Given("^I have deposited (\\£\\d+\\.\\d+) in my account$")
-    public void i_have_deposited_£_in_my_account(@Transform(MoneyConverter.class) Money amount)
+    @Given("^my account has been credited with (\\£\\d+\\.\\d+)$")
+    public void my_account_has_been_credited_with(@Transform(MoneyConverter.class) Money amount)
             throws Throwable {
-        helper.getMyAccount().deposit(amount);
+        helper.getMyAccount().credit(amount);
+    }
+
+    @Then("^the balance of my account should be (\\£\\d+\\.\\d+)$")
+    public void the_balance_of_my_account_should_be_£(@Transform(MoneyConverter.class) Money amount)
+            throws Throwable {
         Assert.assertEquals("Incorrect account balance - ", amount, helper.getMyAccount().getBalance());
     }
 }

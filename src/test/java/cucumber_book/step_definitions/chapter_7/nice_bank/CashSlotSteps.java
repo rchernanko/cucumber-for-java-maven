@@ -1,14 +1,14 @@
-package step_definitions.chapter_7.nice_bank;
+package cucumber_book.step_definitions.chapter_7.nice_bank;
 
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
-import support.KnowsMyDomain;
+import cucumber_book.support.chapter_7.nice_bank.KnowsTheDomain;
 
 public class CashSlotSteps {
 
-    KnowsMyDomain helper;
+    KnowsTheDomain helper;
 
-    public CashSlotSteps(KnowsMyDomain helper) {
+    public CashSlotSteps(KnowsTheDomain helper) {
         this.helper = helper;
     }
 

@@ -1,10 +1,10 @@
-package support;
+package cucumber_book.support.chapter_7.nice_bank;
 
 import implementation.chapter_7.nice_bank.Account;
 import implementation.chapter_7.nice_bank.CashSlot;
 import implementation.chapter_7.nice_bank.Teller;
 
-public class KnowsMyDomain {
+public class KnowsTheDomain {
 
     private Account myAccount;
     private CashSlot cashSlot;
@@ -26,7 +26,7 @@ public class KnowsMyDomain {
 
     public Teller getTeller() {
         if (teller == null) {
-            teller = new Teller(getCashSlot());
+            teller = new AtmUserInterface();
         }
         return teller;
     }
