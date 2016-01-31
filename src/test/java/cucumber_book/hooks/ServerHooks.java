@@ -10,13 +10,13 @@ public class ServerHooks {
 
     private AtmServer server;
 
-    @Before
+    @Before("@server")
     public void startServer() throws Exception {
         server = new AtmServer(PORT);
         server.start();
     }
 
-    @After
+    @After("@server")
     public void stopServer() throws Exception {
         server.stop();
     }
