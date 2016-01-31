@@ -1,4 +1,4 @@
-Feature:
+Feature: Tic Tac Toe
   Scenario:
     Given a board like this:
     |   | 1 | 2 | 3 |

@@ -5,7 +5,7 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions (glue = {"cucumber_book"}, features = "src/test/resources/features/")
+@CucumberOptions (glue = {"cucumber_book"}, features = "src/test/resources/features/", plugin = {"pretty", "html:target/cucumber-reports"})
 public class RunCukesTest {
 }
 

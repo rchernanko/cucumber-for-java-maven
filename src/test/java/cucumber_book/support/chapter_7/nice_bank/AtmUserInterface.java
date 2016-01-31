@@ -11,19 +11,14 @@ public class AtmUserInterface implements Teller {
 
     private final EventFiringWebDriver webDriver;
 
-    public AtmUserInterface() {
-        this.webDriver = new EventFiringWebDriver(new FirefoxDriver());
+    public AtmUserInterface(EventFiringWebDriver webDriver) {
+        this.webDriver = webDriver;
     }
 
     public void withdrawFrom(Account account, int pounds) {
-        try{
-            webDriver.get("http://localhost:" + ServerHooks.PORT);
-            webDriver.findElement(By.id("Amount"))
-                    .sendKeys(String.valueOf(pounds));
-            webDriver.findElement(By.id("Withdraw")).click();
-        }
-        finally {
-            webDriver.close();
-        }
+        webDriver.get("http://localhost:" + ServerHooks.PORT);
+        webDriver.findElement(By.id("Amount"))
+                .sendKeys(String.valueOf(pounds));
+        webDriver.findElement(By.id("Withdraw")).click();
     }
 }
