@@ -5,11 +5,25 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions (glue = {"cucumber_book"}, features = "src/test/resources/features/", plugin = {"pretty", "html:target/cucumber-reports"})
+@CucumberOptions(glue = {"cucumber_book"}, features = "src/test/resources/features/", plugin = {"pretty",
+        "html:target/cucumber-reports", "json:target/cucumber-reports/cucumber.json"})
 public class RunCukesTest {
 }
 
 /*
+
+KEY POINT RE: MASTERTHOUGHT CUCUMBER REPORTING PLUGIN
+
+From the github repo (https://github.com/damianszczepanik/cucumber-reporting):
+
+"This project allows you to publish the results of a cucumber run as pretty html reports. In order for this to work
+you must generate a cucumber json report. The project converts the json report into an overview html linking to
+separate feature file htmls with stats and results."
+
+So basically, I need to include the JSON in the cucumber options in order to generate the HTML reports.
+
+The HTML reports can't be generated without the JSON.
+
 
 RUNNING SCENARIOS / FEATURES AS PER THEIR TAGS
 
