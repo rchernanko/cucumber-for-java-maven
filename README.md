@@ -63,7 +63,7 @@ The HTML reports can't be generated without the JSON.
 
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = {"cucumber_book"}, features = "src/test/resources/features/", plugin = {"pretty",
-        "html:target/cucumber-reports", "json:target/cucumber-reports/cucumber.json"})
+        "html:target/cucumber-reports", **"json:target/cucumber-reports/cucumber.json"**})
 public class RunCukesTest {
 }
 
@@ -81,7 +81,7 @@ If I only want to take a screenshot of failing tests, I could implement somethin
 
 @After("@browser")
 public void tearDown(Scenario scenario) {
-    if (scenario.isFailed()) {
+    **if (scenario.isFailed())** {
             final byte[] screenshot = ((TakesScreenshot) driver)
                         .getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot, "image/png"); //stick it in the report
