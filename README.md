@@ -61,13 +61,12 @@ HTML reports.
 
 The HTML reports can't be generated without the JSON.
 
-@RunWith(Cucumber.class)
-@CucumberOptions(glue = {"cucumber_book"}, features = "src/test/resources/features/", plugin = {"pretty",
-        "html:target/cucumber-reports", **"json:target/cucumber-reports/cucumber.json"**})
-public class RunCukesTest {
-}
 
-###Why do all the tests open a browser?
+![Run Cukes Test Snippet](readme_images/runcukestest.png)
+
+
+
+#Why do all the tests open a browser?
 
 Some of the features require a browser for execution, but others do not (e.g. tic_tac_toe.feature).
 
@@ -79,12 +78,16 @@ which opens a browser and takes a screenshot...this screenshot then gets embedde
 
 If I only want to take a screenshot of failing tests, I could implement something like this:
 
-@After("@browser")
-public void tearDown(Scenario scenario) {
-    **if (scenario.isFailed())** {
-            final byte[] screenshot = ((TakesScreenshot) driver)
-                        .getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png"); //stick it in the report
-    }
-    driver.close();
-}
+![Screenshot of failure only Snippet](readme_images/screenshot_of_failure_only.png)
+
+
+One other thing that caught my eye - within the cucumber reporting plugin in the pom.xml, there is this:
+
+        <skippedFails>true</skippedFails>
+        <!--if a step is skipped in a FF, it will show as a failure on the HTML report-->
+        <undefinedFails>true</undefinedFails>
+        <!--if a step is undefined in a FF, it will show as a failure on the HTML report-->
+
+Some more info in the screenshot below, from stackoverflow:
+
+![Step results matrix Snippet](readme_images/step_results_matrix.png)
